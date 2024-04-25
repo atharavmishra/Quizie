@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#00a450"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12sp"
+            android:layout_marginTop="40dp"
+            android:background="#EDEBEA"
+            android:padding="12sp"
+            app:cardCornerRadius="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:padding="5sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/order_id"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tvOrderId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:fontFamily="@font/robotomedium"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/order_date"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:fontFamily="@font/robotomedium"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/inv_no"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/inv_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/date"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/inv_date"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/inv_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:fontFamily="@font/robotomedium"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_weight="5"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="start"
+                        android:text="Product"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center"
+                        android:text="Quantity"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center"
+                        android:text="Price"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvReport"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/ll1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="Taxable Amount"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvamt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="₹ 15,000"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="Tax Rate :"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvtype"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="NA"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="Tax Amount :"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/taxtoalamt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="₹ ________"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="TCS Rate"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tcsrate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="NA"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="TCS Amount :"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tcsamt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="₹ 0.00"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="Total Amount :"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalAmount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="end"
+                        android:text="₹ 15,000"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/track_shipment"
+            android:textColor="@color/appcolor"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView11" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDot_approved"
+            android:layout_width="0dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_height="15dp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:src="@drawable/blue_dot"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout22"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView9" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout22"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDot_approved"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@+id/ivDot_approved"
+            app:layout_constraintTop_toTopOf="@+id/ivDot_approved">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderPlaced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/appvoed"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderPlaced"
+                app:layout_constraintTop_toBottomOf="@+id/tvOrderPlaced" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/greenLine"
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="@+id/ivDot_approved"
+            app:layout_constraintStart_toStartOf="@+id/ivDot_approved"
+            app:layout_constraintTop_toBottomOf="@+id/ivDot_approved" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDot_dispach"
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/blue_dot"
+            app:layout_constraintEnd_toEndOf="@+id/greenLine"
+            app:layout_constraintEnd_toStartOf="@+id/constraintOrderConfirmed"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenLine" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintOrderConfirmed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDot_dispach"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@+id/ivDot_dispach"
+            app:layout_constraintTop_toBottomOf="@+id/greenLine">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderDispatched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/dispatched"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderDispatchedStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/pending"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDispatched"
+                app:layout_constraintTop_toBottomOf="@+id/tvOrderDispatched" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/grayLine"
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="@+id/ivDot_dispach"
+            app:layout_constraintStart_toStartOf="@+id/ivDot_dispach"
+            app:layout_constraintTop_toBottomOf="@+id/ivDot_dispach" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDelivered"
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/blue_dot"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/grayLine"
+            app:layout_constraintEnd_toStartOf="@+id/constraintDelivered"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grayLine" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintDelivered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDelivered"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@+id/ivDelivered"
+            app:layout_constraintTop_toBottomOf="@+id/grayLine">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderDelivered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/delivered"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderConfirmedStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/pending"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDelivered"
+                app:layout_constraintTop_toBottomOf="@+id/tvOrderDelivered" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/grayLineDelivered"
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="@+id/ivDelivered"
+            app:layout_constraintStart_toStartOf="@+id/ivDelivered"
+            app:layout_constraintTop_toBottomOf="@+id/ivDelivered" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDotAcknowledgement"
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/blue_dot"
+            app:layout_constraintEnd_toEndOf="@+id/grayLineDelivered"
+            app:layout_constraintEnd_toStartOf="@+id/constraintAcknowledgement"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grayLineDelivered" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintAcknowledgement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDotAcknowledgement"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@+id/ivDotAcknowledgement"
+            app:layout_constraintTop_toBottomOf="@+id/grayLineDelivered">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBox"
+                android:visibility="visible"
+                android:src="@drawable/delivery_box"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/robotomedium"
+                android:layout_margin="10dp"
+                android:text="@string/acknowledge_now"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAcknowledge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/acknowledge_now"
+                android:textColor="@color/colorPrimary"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivBox"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderAcknowledgement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/acknowledgment"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderAcknowledgementStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/pending"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderAcknowledgement"
+                app:layout_constraintTop_toBottomOf="@+id/tvOrderAcknowledgement" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- red_dot.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Set the background color to red -->
+    <solid android:color="#DF6E0A" />
+
+    <!-- Define the size of the dot -->
+    <size
+        android:width="10dp"
+        android:height="10dp" />
+
+</shape>
