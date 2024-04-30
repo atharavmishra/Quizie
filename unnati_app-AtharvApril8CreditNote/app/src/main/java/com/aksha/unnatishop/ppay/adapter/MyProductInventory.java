@@ -1,15 +1,12 @@
 package com.aksha.unnatishop.ppay.adapter;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,7 +19,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.aksha.unnatishop.R;
 import com.aksha.unnatishop.Web.MCrypt;
 import com.aksha.unnatishop.model.InventoryProduct;
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,11 +46,14 @@ public class MyProductInventory extends RecyclerView.Adapter<MyProductInventory.
     ViewPager viewPager;
     FragmentManager fm;
     MCrypt mCrypt;
+
+    OpenDialog openDialog;
     String packsized;
 
-    public MyProductInventory(Context context, List<InventoryProduct> list_productDetails) {
+    public MyProductInventory(Context context, List<InventoryProduct> list_productDetails, OpenDialog openDialog) {
         //this.name = list_name;
         this.context = context;
+        this.openDialog = openDialog;
         //.price=list_price;
         viewPager = new ViewPager(context);
         this.list_productDetails = list_productDetails;
@@ -106,7 +105,7 @@ public class MyProductInventory extends RecyclerView.Adapter<MyProductInventory.
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
 
         viewHolder.cardView.setOnClickListener(view -> {
-            showAcknowledgementDialog(context, i);
+            openDialog.openDialog(list_productDetails, i);
         });
 
         try {
@@ -131,45 +130,6 @@ public class MyProductInventory extends RecyclerView.Adapter<MyProductInventory.
         return retIndex;
     }
 
-    public void showAcknowledgementDialog(Context activity, int i) {
-        final Dialog dialog = new Dialog(activity, R.style.BottomSheetDialog);
-        Window window = dialog.getWindow();
-        assert window != null;
-        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        dialog.setCancelable(true);
-        dialog.setContentView(R.layout.bottom_sheet_my_inventory);
-        TextView tvName = dialog.findViewById(R.id.text_item_name);
-        TextView tvPrice = dialog.findViewById(R.id.text_item_quant);
-        TextView tvQuant = dialog.findViewById(R.id.tvQuantPc);
-        ImageView closeBtn = dialog.findViewById(R.id.closeBtn);
-//        ImageView productImg = dialog.findViewById(R.id.imageView9);
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-        try {
-            tvName.setText(mCrypt.Decrypt(list_productDetails.get(i).getName()));
-            tvPrice.setText(mCrypt.Decrypt(list_productDetails.get(i).getQuantity()));
-            tvQuant.setText("Quantity : " + mCrypt.Decrypt(list_productDetails.get(i).getQuantity()) + " Pcs");
-//            Glide.with(context).load(mCrypt.Decrypt(list_productDetails.get(i).getThumb())).fitCenter().into(productImg);
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        dialog.show();
-//        closeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//            }
-//        });
-
-
-        dialog.show();
-
-    }
 
 
     public Double getListTotal(ArrayList<HashMap<String, String>> list_item) {
@@ -246,6 +206,10 @@ public class MyProductInventory extends RecyclerView.Adapter<MyProductInventory.
     public int getItemViewType(int position) {
 
         return position;
+    }
+
+    public interface OpenDialog {
+        public void openDialog(List<InventoryProduct> list_productDetails, int position);
     }
 
 

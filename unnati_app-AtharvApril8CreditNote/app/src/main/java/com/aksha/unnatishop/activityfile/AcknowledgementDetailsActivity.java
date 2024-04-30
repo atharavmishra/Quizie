@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -251,7 +252,8 @@ public class AcknowledgementDetailsActivity extends AppCompatActivity {
 
         ImageView ivBox = findViewById(R.id.ivBox);
 
-        ivBox.setOnClickListener(v -> {
+        ivBox.setOnClickListener(v ->
+        {
             APIService service = ApiClient.getClient().create(APIService.class);
             Call<Object> call = service.acknowledgeDelivery(poId);
             CustomProgressBar dialog;
@@ -318,7 +320,8 @@ public class AcknowledgementDetailsActivity extends AppCompatActivity {
                 }
             });
 
-        });
+        }
+        );
 
 
         try {
@@ -377,8 +380,9 @@ public class AcknowledgementDetailsActivity extends AppCompatActivity {
 
     public void showAcknowledgementDialog(Activity activity, String msg) {
         final Dialog dialog = new Dialog(activity);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
+        Window window = dialog.getWindow();
+        assert window != null;
+        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         dialog.setContentView(R.layout.custom_dialog_acknowledgement);
 
         Button dialogButton = dialog.findViewById(R.id.btnOkay);

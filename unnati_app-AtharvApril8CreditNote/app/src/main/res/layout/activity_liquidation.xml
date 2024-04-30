@@ -1,23 +1,44 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/autoTV_MYInventory"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_rounded_corners"
+        android:drawableEnd="@drawable/search_drawable"
+        android:drawablePadding="20dp"
+        android:fontFamily="@font/robotomedium"
+        android:gravity="center_vertical"
+        android:hint="Search..."
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:paddingStart="@dimen/_7sdp"
+        android:paddingEnd="10dp"
+        android:textSize="@dimen/_12sdp" />
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#00a450"
-        />
+        android:background="#00a450" />
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_tab1"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/autoTV_MYInventory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
 
         />
 
