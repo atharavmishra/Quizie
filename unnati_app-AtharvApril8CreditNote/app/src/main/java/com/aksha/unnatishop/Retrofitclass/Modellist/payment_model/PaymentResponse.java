@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class PaymentResponse {
     public ArrayList<Invoicepayment> getInvoicepayment() {
         return invoicepayment;
+
     }
 
     public void setInvoicepayment(ArrayList<Invoicepayment> invoicepayment) {
