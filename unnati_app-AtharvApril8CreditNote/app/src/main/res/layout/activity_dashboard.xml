@@ -1,0 +1,527 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/sliderAdapterDashboard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/unnati_logo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                        app:layout_constraintStart_toEndOf="@+id/imageView11"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/menu_image"
+                        android:src="@drawable/menu"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="end|center"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/bell_image"
+                        android:src="@drawable/notification_bell"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/profile_img"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView42"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/hello_uttam"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView12"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="10sp"
+                        android:layout_height="10sp"
+                        android:text="26C"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView14"
+                        app:layout_constraintStart_toStartOf="@+id/imageView14"
+                        app:layout_constraintTop_toTopOf="@+id/imageView14" />
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/weather"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/sliderAdapterDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_corners"
+                app:layout_constraintBottom_toTopOf="@+id/sliderAdapterDashboard2"
+                app:layout_constraintDimensionRatio="H,2.638:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout29"
+                app:sliderAnimationDuration="300"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="300"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="10dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="@color/colorPrimary"
+                app:sliderIndicatorUnselectedColor="#ffffff"
+                app:sliderScrollTimeInSec="5"
+                app:sliderStartAutoCycle="true" />
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/sliderAdapterDashboard2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_corners"
+                app:layout_constraintBottom_toTopOf="@+id/layout"
+                app:layout_constraintDimensionRatio="H,2.638:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sliderAdapterDashboard"
+                app:sliderAnimationDuration="300"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="300"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="10dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="@color/colorPrimary"
+                app:sliderIndicatorUnselectedColor="#ffffff"
+                app:sliderScrollTimeInSec="5"
+                app:sliderStartAutoCycle="true" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sliderAdapterDashboard2"
+                app:layout_constraintVertical_weight="8">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/textView43"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Cash Ledger"
+                            android:textColor="#FA971D"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/cashladger"
+                            app:layout_constraintStart_toStartOf="@+id/cashladger"
+                            app:layout_constraintTop_toBottomOf="@+id/cashladger" />
+
+                        <TextView
+                            android:id="@+id/tvReports"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Reports"
+                            android:textColor="#A31100"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/ivReports"
+                            app:layout_constraintStart_toStartOf="@+id/ivReports"
+                            app:layout_constraintTop_toBottomOf="@+id/ivReports" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Receive Material"
+                            android:textColor="#3F7E61"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/receivematerial"
+                            app:layout_constraintStart_toStartOf="@+id/receivematerial"
+                            app:layout_constraintTop_toBottomOf="@+id/receivematerial" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Change Pass."
+                            android:textColor="#9D8434"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/changepasswoerd"
+                            app:layout_constraintStart_toStartOf="@+id/changepasswoerd"
+                            app:layout_constraintTop_toBottomOf="@+id/changepasswoerd" />
+
+                        <ImageView
+                            android:id="@+id/cashladger"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/cash_ledger_icoin"
+                            app:layout_constraintEnd_toStartOf="@+id/receivematerial"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/receivematerial"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:src="@drawable/receive_material_svg"
+                            app:layout_constraintEnd_toStartOf="@+id/changepasswoerd"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/cashladger"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/changepasswoerd"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/change_password_icon"
+                            app:layout_constraintEnd_toStartOf="@+id/ivReports"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/receivematerial"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivReports"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/reports_icon"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/changepasswoerd"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout10"
+                    app:layout_constraintVertical_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/tvEducationResources"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Customer Insights"
+                            android:textColor="#6552E6"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/ivFaqs"
+                            app:layout_constraintStart_toStartOf="@+id/ivFaqs"
+                            app:layout_constraintTop_toBottomOf="@+id/ivFaqs" />
+
+                        <TextView
+                            android:id="@+id/tvEvents"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Events"
+                            android:textColor="#00A350"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/ivCustomerInsights"
+                            app:layout_constraintStart_toStartOf="@+id/ivCustomerInsights"
+                            app:layout_constraintTop_toBottomOf="@+id/ivCustomerInsights" />
+
+
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Receive Material"
+                            android:textColor="#3F7E61"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/ivEducationResources"
+                            app:layout_constraintStart_toStartOf="@+id/ivEducationResources"
+                            app:layout_constraintTop_toBottomOf="@+id/ivEducationResources" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="FAQs"
+                            android:textColor="#D47646"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView13"
+                            app:layout_constraintStart_toStartOf="@+id/imageView13"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+
+                        <ImageView
+                            android:id="@+id/ivEducationResources"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/educational_resources"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView13"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView13"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/faqs"
+                            app:layout_constraintEnd_toStartOf="@+id/ivFaqs"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/ivEducationResources"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivFaqs"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/customer_insights"
+                            app:layout_constraintEnd_toStartOf="@+id/ivCustomerInsights"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView13"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivCustomerInsights"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/circular_background"
+                            android:padding="5dp"
+                            android:src="@drawable/events"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/ivFaqs"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3">
+
+        <LinearLayout
+            android:id="@+id/billing"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/epos_gray" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="E-pos Billing"
+                android:textSize="13sp"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="@color/textSecondary"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/purchasrquestw"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/purchase_request_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="E-pos Billing"
+                android:textSize="13sp"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="@color/textSecondary"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myinventry"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/my_inventory_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="E-pos Billing"
+                android:textSize="13sp"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="@color/textSecondary"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

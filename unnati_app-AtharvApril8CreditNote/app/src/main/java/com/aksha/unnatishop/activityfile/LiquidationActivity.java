@@ -6,8 +6,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,7 +42,6 @@ import com.aksha.unnatishop.ppay.adapter.MyProductInventory;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -97,7 +99,6 @@ public class LiquidationActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String s) {
 
                 RecyclerView recyclerView = findViewById(R.id.recycler_tab1);
-
                 List<InventoryProduct> list_obj1 = new ArrayList<>();
                 List<InventoryProduct> filtered_list = new ArrayList<>();
                 if (poList != null)
@@ -106,7 +107,7 @@ public class LiquidationActivity extends AppCompatActivity {
                     for (int i = 0; i < list_obj1.size(); i++) {
 
                         try {
-                            if (mCrypt.Decrypt(list_obj1.get(i).name).toLowerCase().contains(s.toLowerCase())) {
+                            if (mCrypt.Decrypt(list_obj1.get(i).getName()).toLowerCase().contains(s.toLowerCase())) {
                                 filtered_list.add(list_obj1.get(i));
 
                             } else {
@@ -120,18 +121,14 @@ public class LiquidationActivity extends AppCompatActivity {
 
                     final GridLayoutManager layoutManager = new GridLayoutManager(LiquidationActivity.this, 2);
                     recyclerView.setLayoutManager(layoutManager);
-                    int spacingInPixels = 10;
-                    recyclerView.addItemDecoration(new RecyclerViewSpacesItemDecoration(spacingInPixels));
-                    MyProductInventory adapter = new MyProductInventory(LiquidationActivity.this, poList, (list_productDetails, position) -> showAcknowledgementDialog(LiquidationActivity.this, position, list_productDetails));
+                    MyProductInventory adapter = new MyProductInventory(LiquidationActivity.this, filtered_list, (list_productDetails, position) -> showAcknowledgementDialog(LiquidationActivity.this, position, list_productDetails));
                     recyclerView.setAdapter(adapter);
 
 
                 } else {
                     final GridLayoutManager layoutManager = new GridLayoutManager(LiquidationActivity.this, 2);
                     recyclerView.setLayoutManager(layoutManager);
-                    int spacingInPixels = 10;
-                    recyclerView.addItemDecoration(new RecyclerViewSpacesItemDecoration(spacingInPixels));
-                    MyProductInventory adapter = new MyProductInventory(LiquidationActivity.this, poList, (list_productDetails, position) -> showAcknowledgementDialog(LiquidationActivity.this, position, list_productDetails));
+                    MyProductInventory adapter = new MyProductInventory(LiquidationActivity.this, list_obj1, (list_productDetails, position) -> showAcknowledgementDialog(LiquidationActivity.this, position, list_productDetails));
                     recyclerView.setAdapter(adapter);
 
 
@@ -214,68 +211,68 @@ public class LiquidationActivity extends AppCompatActivity {
 
     }
 
-    private void searchProductList(String s) {
-        CustomProgressBar dialog;
-        dialog = new CustomProgressBar(this);
-        dialog.startlodingdiloge();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(WebUtils.sURL).addConverterFactory(GsonConverterFactory.create()).build();
-        APIService apiInterface = retrofit.create(APIService.class);
-
-        try {
-            Call<GetProductInventory> call = apiInterface.searchInventoryProducts(Preference.get_storeId(LiquidationActivity.this), WebUtils.check_Pref(LiquidationActivity.this), s);
-
-            call.enqueue(new Callback<>() {
-                @Override
-                public void onResponse(@NonNull Call<GetProductInventory> call, @NonNull Response<GetProductInventory> response) {
-                    dialog.dismiss();
-                    if (response.isSuccessful() && response.body() != null) {
-
-                        dialog.dismiss();
-                        GetProductInventory poListResponse = response.body();
-                        assert poListResponse != null;
-                        poList = poListResponse.getProducts();
-                        Log.e("LiquidationActivityTag", "onSuccess: " + poListResponse.getProducts().size());
-                        RecyclerView recyclerView = findViewById(R.id.recycler_tab1);
-                        if (poList.size() > 0) {
-
-                            final GridLayoutManager layoutManager = new GridLayoutManager(LiquidationActivity.this, 2);
-                            recyclerView.setLayoutManager(layoutManager);
-                            int spacingInPixels = 10;
-                            recyclerView.addItemDecoration(new RecyclerViewSpacesItemDecoration(spacingInPixels));
-                            MyProductInventory adapter = new MyProductInventory(LiquidationActivity.this, poList, (list_productDetails, position) -> showAcknowledgementDialog(LiquidationActivity.this, position, list_productDetails));
-                            recyclerView.setAdapter(adapter);
-
-
-                        } else {
-                            int img = R.drawable.empty_list;
-                            Recycler_Adapter_NoData adap = new Recycler_Adapter_NoData(LiquidationActivity.this, img, "No List to show");
-                            recyclerView.setLayoutManager(new LinearLayoutManager(LiquidationActivity.this, LinearLayoutManager.VERTICAL, false));
-                            recyclerView.setAdapter(adap);
-                            dialog.dismiss();
-
-                        }
-
-
-                    }
-                }
-
-                @Override
-                public void onFailure(@NonNull Call<GetProductInventory> call, @NonNull Throwable t) {
-                    try {
-                        Log.e("LiquidationActivityTag", "onFailure: " + call.execute().message());
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                    dialog.dismiss();
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-            dialog.dismiss();
-        }
-
-
-    }
+//    private void searchProductList(String s) {
+//        CustomProgressBar dialog;
+//        dialog = new CustomProgressBar(this);
+//        dialog.startlodingdiloge();
+//        Retrofit retrofit = new Retrofit.Builder().baseUrl(WebUtils.sURL).addConverterFactory(GsonConverterFactory.create()).build();
+//        APIService apiInterface = retrofit.create(APIService.class);
+//
+//        try {
+//            Call<GetProductInventory> call = apiInterface.searchInventoryProducts(Preference.get_storeId(LiquidationActivity.this), WebUtils.check_Pref(LiquidationActivity.this), s);
+//
+//            call.enqueue(new Callback<>() {
+//                @Override
+//                public void onResponse(@NonNull Call<GetProductInventory> call, @NonNull Response<GetProductInventory> response) {
+//                    dialog.dismiss();
+//                    if (response.isSuccessful() && response.body() != null) {
+//
+//                        dialog.dismiss();
+//                        GetProductInventory poListResponse = response.body();
+//                        assert poListResponse != null;
+//                        poList = poListResponse.getProducts();
+//                        Log.e("LiquidationActivityTag", "onSuccess: " + poListResponse.getProducts().size());
+//                        RecyclerView recyclerView = findViewById(R.id.recycler_tab1);
+//                        if (poList.size() > 0) {
+//
+//                            final GridLayoutManager layoutManager = new GridLayoutManager(LiquidationActivity.this, 2);
+//                            recyclerView.setLayoutManager(layoutManager);
+//                            int spacingInPixels = 10;
+//                            recyclerView.addItemDecoration(new RecyclerViewSpacesItemDecoration(spacingInPixels));
+//                            MyProductInventory adapter = new MyProductInventory(LiquidationActivity.this, poList, (list_productDetails, position) -> showAcknowledgementDialog(LiquidationActivity.this, position, list_productDetails));
+//                            recyclerView.setAdapter(adapter);
+//
+//
+//                        } else {
+//                            int img = R.drawable.empty_list;
+//                            Recycler_Adapter_NoData adap = new Recycler_Adapter_NoData(LiquidationActivity.this, img, "No List to show");
+//                            recyclerView.setLayoutManager(new LinearLayoutManager(LiquidationActivity.this, LinearLayoutManager.VERTICAL, false));
+//                            recyclerView.setAdapter(adap);
+//                            dialog.dismiss();
+//
+//                        }
+//
+//
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(@NonNull Call<GetProductInventory> call, @NonNull Throwable t) {
+//                    try {
+//                        Log.e("LiquidationActivityTag", "onFailure: " + call.execute().message());
+//                    } catch (IOException e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                    dialog.dismiss();
+//                }
+//            });
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            dialog.dismiss();
+//        }
+//
+//
+//    }
 
     private void getProductList() {
         CustomProgressBar dialog;
@@ -298,7 +295,7 @@ public class LiquidationActivity extends AppCompatActivity {
                         dialog.dismiss();
                         GetProductInventory poListResponse = response.body();
                         assert poListResponse != null;
-                        List<InventoryProduct> poList = poListResponse.getProducts();
+                        poList = poListResponse.getProducts();
                         RecyclerView recyclerView = findViewById(R.id.recycler_tab1);
                         if (poList.size() > 0) {
 
@@ -341,7 +338,7 @@ public class LiquidationActivity extends AppCompatActivity {
 
     }
 
-    public void showAcknowledgementDialog(Context activity, int i, List<InventoryProduct> list_productDetails) {
+    public void showAcknowledgementDialog(Context activity, int position, List<InventoryProduct> list_productDetails) {
         final Dialog dialog = new Dialog(activity, R.style.BottomSheetDialog);
         Window window = dialog.getWindow();
         assert window != null;
@@ -353,12 +350,47 @@ public class LiquidationActivity extends AppCompatActivity {
         TextView tvQuant = dialog.findViewById(R.id.tvQuantPc);
         ImageView closeBtn = dialog.findViewById(R.id.closeBtn);
         TextView saveBtn = dialog.findViewById(R.id.textView41);
+        EditText editText = dialog.findViewById(R.id.editText);
 //        ImageView productImg = dialog.findViewById(R.id.imageView9);
         closeBtn.setOnClickListener(view -> dialog.dismiss());
+        TextView tvWarning = dialog.findViewById(R.id.tvWarning);
+
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String charSequenceString = charSequence.toString();
+                if (charSequence.length() > 0) {
+                    try {
+                        if (Integer.valueOf(charSequenceString) > Integer.parseInt(mCrypt.Decrypt(list_productDetails.get(position).getQuantity()))) {
+                            tvWarning.setVisibility(View.VISIBLE);
+                            editText.setText("");
+                        } else {
+                            tvWarning.setVisibility(View.GONE);
+
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
         try {
-            tvName.setText(mCrypt.Decrypt(list_productDetails.get(i).getName()));
-            tvPrice.setText(mCrypt.Decrypt(list_productDetails.get(i).getQuantity()));
-            tvQuant.setText("Quantity : " + mCrypt.Decrypt(list_productDetails.get(i).getQuantity()) + " Pcs");
+            tvName.setText(mCrypt.Decrypt(list_productDetails.get(position).getName()));
+            tvPrice.setText(mCrypt.Decrypt(list_productDetails.get(position).getQuantity()));
+            tvQuant.setText("Quantity : " + mCrypt.Decrypt(list_productDetails.get(position).getQuantity()) + " Pcs");
 //            Glide.with(context).load(mCrypt.Decrypt(list_productDetails.get(i).getThumb())).fitCenter().into(productImg);
 
         } catch (Exception e) {
